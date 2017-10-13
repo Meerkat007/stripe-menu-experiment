@@ -62,7 +62,7 @@ body {
 .dropdown_sub_menu ul {
     position: absolute;
     opacity: 0;
-    transition: 1s ease;
+    transition: .3s ease;
     min-width: 200px;
 }
 .dropdown_sub_menu.active ul {

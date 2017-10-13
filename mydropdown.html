@@ -16,34 +16,34 @@
             <div class="dropdown_list">
                 <div class="dropdown_sub_menu industries">
                     <ul>
-                        <li>dfdfdf</li>
-                        <li>efefe</li>
-                        <li>efef</li>
-                        <li>afefaefa</li>
+                        <li>dfdfdfdffefefe</li>
+                        <li>efefefefefefef</li>
+                        <li>efefefefefefe</li>
+                        <li>aefefefefefefaefa</li>
                     </ul>
                 </div>
                 <div class="dropdown_sub_menu products">
                     <ul>
-                        <li>fefef</li>
-                        <li>efefe</li>
-                        <li>efef</li>
-                        <li>dfdfefe</li>
+                        <li>fefeffffffffffef</li>
+                        <li>efeeeeeeeeeeeeefe</li>
+                        <li>efeeeeeeeeeeeeeef</li>
+                        <li>dfeeeeeeeeeeeeeeeeeedfefe</li>
                     </ul>
                 </div>
                 <div class="dropdown_sub_menu partners">
                     <ul>
-                        <li>afefef</li>
-                        <li>efefe</li>
-                        <li>efefe</li>
-                        <li>efef</li>
+                        <li>afefef<ddfdf/li>
+                        <li>efefeefef</li>
+                        <li>efefeefef</li>
+                        <li>efefefefeef</li>
                     </ul>
                 </div>
                 <div class="dropdown_sub_menu about-us">
                     <ul>
-                        <li>dfff</li>
-                        <li>dffff</li>
-                        <li>dfdfdfd</li>
-                        <li>eeeee</li>
+                        <li>dffffefe</li>
+                        <li>dfefeffff</li>
+                        <li>dfefefdfdfd</li>
+                        <li>eeefefefeeee</li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +55,7 @@
     jQuery(function() {
         var closeDropdownTimeout;
 startCloseTimeout = function() {
-    closeDropdownTimeout = setTimeout(function() {closeDropdown();}, 50);
+    closeDropdownTimeout = setTimeout(function() {closeMenu();}, 50);
 },
 stopCloseTimeout = function() {
     clearTimeout(closeDropdownTimeout);
@@ -70,7 +70,7 @@ stopCloseTimeout = function() {
                     showMenu(element);
                 })
                 jQuery(element).on("mouseleave", function() {
-                    stopCloseTimeout();
+                    startCloseTimeout();
                 })
             })
 
@@ -114,7 +114,6 @@ stopCloseTimeout = function() {
             $bg.css({
                 opacity: 0
             })
-
             jQuery('.dropdown-active').remove("dropdown-active");
         }
     })

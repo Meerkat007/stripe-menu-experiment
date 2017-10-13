@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./mydropdown.css" />
+    </head>
+    <div class="wrapper">
+        <div class="select_menus">
+            <ul>
+                <li class="industries">select 1</li>
+                <li class="products">select 2</li>
+                <li class="partners">select 3</li>
+                <li class="about-us">select 4</li>
+            </ul>
+        </div>
+        <div class="dropdown_sub_menu_wrapper">
+            <div class="bg-layer"></div>
+            <div class="dropdown_list">
+                <div class="dropdown_sub_menu industries">
+                    <ul>
+                        <li>dfdfdf</li>
+                        <li>efefe</li>
+                        <li>efef</li>
+                        <li>afefaefa</li>
+                    </ul>
+                </div>
+                <div class="dropdown_sub_menu products">
+                    <ul>
+                        <li>fefef</li>
+                        <li>efefe</li>
+                        <li>efef</li>
+                        <li>dfdfefe</li>
+                    </ul>
+                </div>
+                <div class="dropdown_sub_menu partners">
+                    <ul>
+                        <li>afefef</li>
+                        <li>efefe</li>
+                        <li>efefe</li>
+                        <li>efef</li>
+                    </ul>
+                </div>
+                <div class="dropdown_sub_menu about-us">
+                    <ul>
+                        <li>dfff</li>
+                        <li>dffff</li>
+                        <li>dfdfdfd</li>
+                        <li>eeeee</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>
+<script src="http://code.jquery.com/jquery-1.8.0.min.js "></script>
+<script>
+    jQuery(function() {
+        var closeDropdownTimeout;
+startCloseTimeout = function() {
+    closeDropdownTimeout = setTimeout(function() {closeDropdown();}, 50);
+},
+stopCloseTimeout = function() {
+    clearTimeout(closeDropdownTimeout);
+},
+        $bg = jQuery('.bg-layer');
+        $dropdownList = jQuery('.dropdown_list');
+
+        jQuery('.select_menus ul li')
+            .each(function(index, element) {
+                jQuery(element).on("mouseenter", function() {
+                    stopCloseTimeout();
+                    showMenu(element);
+                })
+                jQuery(element).on("mouseleave", function() {
+                    stopCloseTimeout();
+                })
+            })
+
+        function showMenu(element) {
+            console.log('show menu')
+            var className = jQuery(element).attr('class');
+            var subMenu = jQuery(".dropdown_sub_menu."+className);
+            console.log(subMenu)
+            var subMenuHeight = subMenu.height();
+            var subMenuWidth = subMenu.width();
+            var menuLeft = jQuery(element).offset().left;
+            jQuery('.dropdown_sub_menu').each(function(i, element) {
+                jQuery(element).removeClass('active');
+            })
+            subMenu.addClass('active');
+
+            $bg.css({
+                opacity: 1,
+                left: menuLeft - (subMenuWidth / 2 - jQuery(element).width() / 2) + 'px',
+                width: subMenuWidth,
+                height: subMenuHeight
+            })
+
+            //- Set sub menu style
+            $dropdownList.css({
+                opacity: 1,
+                left: menuLeft - (subMenuWidth / 2 - jQuery(element).width() / 2) + 'px',
+                width: subMenuWidth,
+                height: subMenuHeight
+            })
+
+            jQuery('.wrapper').addClass('dropdown-active');
+        }
+
+        function closeMenu() {
+             //- Remove active class from all menu items
+            jQuery('.dropdown_sub_menu').each(function(index, element) {
+                jQuery(element).removeClass('active');
+            })
+            //- set sub menu background opacity
+            $bg.css({
+                opacity: 0
+            })
+
+            jQuery('.dropdown-active').remove("dropdown-active");
+        }
+    })
+</script>

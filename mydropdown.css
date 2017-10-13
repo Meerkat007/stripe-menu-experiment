@@ -1,0 +1,72 @@
+body {
+    background-color: green;
+}
+.wrapper {
+    background-color: green;
+    position: relative;
+}
+.select_menus ul {
+    list-style: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.bg-layer {
+    width: 450px;
+    height: 400px;
+    background-color: white;
+    opacity: 0;
+    transition: 0.25s ease;
+    border-radius: 5px;
+    overflow: hidden;
+    top: 0px;
+    position: absolute;
+    box-shadow: 0 3px 8px #f4f4f4;
+}
+.select_menus ul li {
+    display: inline-block;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.dropdown_sub_menu_wrapper {
+    display: block;
+    left: 0;
+    width: auto;
+    position: relative;
+    background-color: transparent
+}
+.dropdown_list {
+    overflow: hidden;
+    position: absolute;
+    -webkit-transition: 0.25s ease;
+    transition: 0.25s ease;
+    z-index: 1;
+    top: 0;
+}
+.dropdown_sub_menu.industries {
+    width: 920px;
+    height: 300px;
+}
+.dropdown_sub_menu.products {
+    width: 620px;
+    height: 200px;
+}
+.dropdown_sub_menu.about-us {
+    width: 920px;
+    height: 250px;
+}
+.dropdown_sub_menu.partners {
+    width: 920px;
+    height: 180px;
+}
+.dropdown_sub_menu ul {
+    position: absolute;
+    opacity: 0;
+    transition: 1s ease;
+    min-width: 200px;
+}
+.dropdown_sub_menu.active ul {
+    opacity: 1;
+    background-color: white;
+    top: 0;
+}
